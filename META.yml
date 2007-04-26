@@ -1,0 +1,13 @@
+abstract: unique check for DBIC::Schema
+author: Atsushi Kobayashi  C<< <atsushi __at__ mobilefactory.jp> >>
+distribution_type: module
+generated_by: Module::Install version 0.64
+license: perl
+name: FormValidator-Simple-Plugin-DBIC-Schema-Unique
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  FormValidator::Simple: 0
+version: 0.01
