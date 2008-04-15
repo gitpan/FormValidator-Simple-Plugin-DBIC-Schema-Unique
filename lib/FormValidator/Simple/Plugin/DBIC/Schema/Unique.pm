@@ -1,10 +1,11 @@
 package FormValidator::Simple::Plugin::DBIC::Schema::Unique;
 use strict;
 use warnings;
+use Scalar::Util qw(blessed);
 use FormValidator::Simple::Exception;
 use FormValidator::Simple::Constants;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub DBIC_SCHEMA_UNIQUE {
     my ($class, $params, $args) = @_;
@@ -15,7 +16,7 @@ sub DBIC_SCHEMA_UNIQUE {
         );
     }
     my $rs = pop @$args;
-    unless ( ref $rs eq 'DBIx::Class::ResultSet' ) {
+    if ( !blessed($rs) || !$rs->isa('DBIx::Class::ResultSet') ) {
         FormValidator::Simple::Exception->throw(
             qq/Validation DBIC_SCHEMA_UNIQUE: Last parameter need DBIx::Class::ResultSet's object./
         );
